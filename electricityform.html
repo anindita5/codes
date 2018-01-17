@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="mystyle.css">
+		<title> Electricity Consumption</title>
+	</head>
+	<body>
+		<script src="elecvalidate.js"></script>
+		<form name="form1" onsubmit="return validate()" >
+		<table align="center" style="border:2px solid" width="500px" bgcolor="white" id="ctab">
+			
+			<tr>
+				<td colspan="2"><h2><center>Electricity Consumer Form</center><h2> </td>
+			</tr>
+			<tr>
+				<td>Consumer No:</td>
+				<td><input type="text" required name="cno" id="cno" pattern="^(\d{10})$" maxlength="10" required /></td>
+			</tr>
+			<tr>
+			</tr>
+			<tr>
+				<td>Consumer Name:</td>
+				<td><input type="text" id="fname" name="cname" pattern="[A-Z][a-z]+"  minlength="3" title="Abc" required ></td>
+			</tr>
+			<tr>
+			</tr>
+			<tr>
+			</tr>
+
+			<tr>
+				<td>Email Address:</td>
+				<td><input type="email" id="cemail" name="email" required /></td>
+			</tr>
+			<tr>
+			</tr>
+			<tr>
+				<td>Number of units:</td>
+				<td><input type="number" id="num" name="units" min="1" required />
+			<tr>
+			</tr>
+
+				<tr>
+					<td colspan="2" align="center"><input type="Submit" value="Calculate Electricity Charges and Display" id="sub"></td>
+					
+				</tr>
+		</table>
+		</form>
+	</body>
+</html>

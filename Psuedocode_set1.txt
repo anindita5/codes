@@ -1,0 +1,127 @@
+/************************************************************************************************************
+* File Name           : Psuedocode_set1.txt
+* Author              : Mahima Agrawal
+* Creation Date       : 10-01-2018
+* Version	      : 1.0
+* Description         : Pseudocode to print occurance of a digit in a given number
+* Last Modified Date  : -
+*************************************************************************************************************/
+
+BEGIN
+     
+	DECLARE num AS INTEGER				//Variable to store the number entered by user		
+	DECLARE digit AS INTEGER			//Variable to store the number entered by user which occurance we have to find
+	DECLARE dig_occurence AS INTEGER		// Variable to store the occurance of digit
+
+        PROMPT "Enter the number" 
+		AND STORE IN num
+
+	PROMPT "Enter the digit of which occurance you want to find" 
+		AND STORE IN digit
+			
+	IF(isValidNumber(num)) THEN
+
+		IF(isValidEnteredDigit(digit)) THEN
+			IF(isDigitFound(digit)) THEN 
+
+				dig_occurence =findOccurance() 		//Calling the sub module of finding the occurence of the digit and return value of this module is stored 
+								
+			
+				PRINT "The occurence of digit is", dig_occurence 	//To print the occurence of digit
+			END IF 
+		END IF 
+	END IF
+
+	EXCEPTION
+		WHEN DigitNotFound THEN
+			PRINT "Entered digit does not exist in the number"	//Raise the exception when occurence is not found
+	
+				
+END
+
+/********************************************************************************
+* Module Name         : isDigitFound()
+* Input Parameters    : digit
+* Return Type         : BOOLEAN
+* Author              : Mahima Agrawal
+* Creation Date       : 26-12-2017
+* Description         : Exception handling when digit is not found
+*********************************************************************************/
+
+SUB isDigitFound ( digit)
+
+	IF(dig_occurence != 0) THEN
+
+		RETURN true
+	ELSE
+		RAISE DigitNotFound ('Entered digit does not exist in the number entered by User')
+		
+END SUB
+
+/********************************************************************************
+* Module Name         : findOccurance()
+* Input Parameters    : num,digit
+* Return Type         : INTEGER
+* Author              : Mahima Agrawal
+* Creation Date       : 10-01-2018
+* Description         :	Module to find the occurance of the digit in the number
+*********************************************************************************/
+
+SUB findoccurance ( num, digit )
+
+	DECLARE rem AS INTEGER
+	DECLARE dig_occurence AS INTEGER
+	
+	INITIALIZE rem TO 0 
+	INITALIZE count TO 0
+
+		WHILE num > 0					//loop executes when number is greater than 0
+
+			rem = num % 10 				//logic to fetch the every digit from the number
+			
+			IF ( rem = digit ) 			//If fetched digit and searched digit found then count the occurence
+				
+				count ++ ;			//whenever occurence of digit is found counter increments 
+			END IF
+			
+			num = num /10;				//to divide the number so that every digit can be fetched
+		END WHILE 
+
+	RETURN count 						//return the counter of occurence 
+END SUB
+
+/*******************************************************************************
+* Module Name         : isValidNumber()
+* Input Parameters    : num
+* Return Type         : Boolean
+* Author              : Mahima Agrawal
+* Creation Date       : 10-01-2018
+* Description         : Sub module to validate the number 
+*********************************************************************************/
+
+SUB isValidNumber(num)
+
+	IF(num >= 0 )					//IF number is not positive return false
+
+		RETURN true
+	ELSE
+		RETURN false
+END SUB
+
+/********************************************************************************
+* Module Name         : isValidEnteredDigit()
+* Input Parameters    : digit
+* Return Type         : Boolean
+* Author              : Mahima Agrawal
+* Creation Date       : 10-01-2018
+* Description         : Sub module to validate the entered digit  
+*********************************************************************************/
+
+SUB isValidNumber(digit)
+
+	IF(digit >= 0 )
+
+		RETURN true
+	ELSE
+		RETURN false
+END SUB

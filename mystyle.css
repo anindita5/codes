@@ -1,0 +1,19 @@
+h2{
+color:black;
+text-shadow: 2px 2px red;
+}
+
+body{
+text-align:center;
+color:black;
+background:cyan;
+}
+
+#ctab{
+background:lightgrey;
+}
+
+#sub{
+color:red;
+}
+

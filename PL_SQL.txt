@@ -1,0 +1,43 @@
+Section 3.1
+--------------------------------
+CREATE OR REPLACE procedure facultyDetails(id in number)    
+AS
+    course_id course.courseid%type;
+    course_name course.course_name%type;
+    loc course.location%type;
+
+    cursor faculty_cursor IS 
+    select courseid, course_name, location from course
+    where facultyid = id;
+
+    no_data exception;
+
+BEGIN
+  
+  if not faculty_cursor%isopen THEN            
+    open faculty_cursor;
+  end if;
+
+  LOOP
+    
+        fetch faculty_cursor into course_id, course_name, loc;
+
+        exit when faculty_cursor%notfound;
+
+        dbms_output.put_line('Course id: ' || course_id || ' Course name: ' || course_name || ' Location: ' || loc);    
+  END LOOP;
+
+  IF course_id is NULL
+  THEN
+    raise no_data;
+  END IF;
+
+EXCEPTION
+    when no_data THEN                     
+        dbms_output.put_line('No data exist');
+  WHEN OTHERS THEN
+        dbms_output.put_line('Others');
+END;
+/
+
+Execute facultyDetails;

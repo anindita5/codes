@@ -1,0 +1,38 @@
+Section 3_Q.(2.a)
+----------------------------------------------------
+
+	SELECT courseId, Course_name FROM course 
+	WHERE course_name LIKE '%Windows%'
+	ORDER BY Course_name;
+	
+	OUTPUT:
+		  COURSEID COURSE_NAME
+		---------- --------------------
+         	3 Windows Programming
+         	6 Windows Presentation
+		
+
+Section 3_Q.(2.b)
+-----------------------------------
+
+	SELECT count(facultyid) AS nO_faculty ,lot 
+	FROM faculty
+	GROUP BY lot 
+	HAVING count(facultyid) > 3;
+
+	OUTPUT : 
+		NO_FACULTY LOT
+		---------- ----------
+         	4           JEE
+
+Section 3_Q.(3)
+-----------------------------
+
+	UPDATE course
+	SET endDate = endDate + 4 
+	WHERE course_name = 'Servlet';
+	
+	OUTPUT:
+		1 row updated.
+		
+		

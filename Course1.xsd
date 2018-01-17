@@ -1,0 +1,48 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="course_name" type="courseType"/>
+    <xs:element name="location" type="locType"/>
+    <xs:element name="labno" type="xs:string"/>
+    <xs:element name="facultyid" type="xs:string"/>
+    <xs:element name="startdate" type="xs:string"/>
+	<xs:element name="enddate" type="xs:string"/>
+	<xs:element name="Course" type="coursesType"/>
+		
+		<xs:simpleType name="courseType">
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Servlet"/>
+				<xs:enumeration value="JSP2.2"/>
+				<xs:enumeration value="Windows Programming"/>
+				<xs:enumeration value="OOP and UML"/>
+				<xs:enumeration value="HTML5"/>
+				<xs:enumeration value="Windows Presentation"/>
+			</xs:restriction>
+		</xs:simpleType>
+		
+		<xs:simpleType name="locType">
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Pune"/>
+				<xs:enumeration value="Mumbai"/>
+				<xs:enumeration value="Bangalore"/>
+            </xs:restriction>
+		</xs:simpleType>
+		
+		<xs:complexType name="coursesType">
+            <xs:sequence>
+                <xs:element ref="course_name"/>
+                <xs:element ref="location"/>
+                <xs:element ref="labno"/>
+                <xs:element ref="facultyid"/>
+				<xs:element ref="startdate"/>
+				<xs:element ref="enddate"/>
+            </xs:sequence>
+			<xs:attribute name="courseid" type="xs:integer" use="required"/>
+        </xs:complexType>
+        
+        <xs:element name="CourseDetails" type="Coursedetailstype"/>
+        <xs:complexType name="Coursedetailstype">
+            <xs:sequence>
+                <xs:element ref="Course" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+</xs:schema>
