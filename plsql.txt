@@ -1,0 +1,54 @@
+create or replace procedure fac(fac_id in number)
+as
+    mob customer.mobileno%type;
+    name customer.name%type;
+    qty orders.qty%type;
+  price orders.price%type;
+
+    cursor fac_cur is select c.name, c.mobileno, o.qty, o.price from customer c , orders o 
+  where o.custid = c.custid and c.custid = fac_id;
+    
+  total number(20);
+    no_data exception;
+
+BEGIN
+  
+  if not fac_cur%isopen THEN
+    open fac_cur;
+  end if;
+
+  LOOP
+    
+        fetch fac_cur into name, mob, qty, price;
+
+        exit when fac_cur%notfound;
+
+      total := price*qty;
+
+        dbms_output.put_line('mobileno: ' || mob || '  name: ' || name || ' Quantity: ' || qty || ' Total ' || total);
+
+  END LOOP;
+
+  IF mob is NULL
+  THEN
+    raise no_data;
+  END IF;
+
+EXCEPTION
+    when no_data THEN
+        dbms_output.put_line('No data exist');
+  WHEN OTHERS THEN
+        dbms_output.put_line('Others..');
+END;
+/
+
+set serveroutput on size 3000;
+
+DECLARE
+ id number;
+
+BEGIN
+    id := 1003;
+    fac(id);
+END;
+/

@@ -1,0 +1,22 @@
+2a 
+	
+select c.custid, c.name,c.mobileno, c.email,o.qty
+from customer c, orders o
+where c.custid = o.custid and o.qty>=3;
+
+2.b
+
+select name, email 
+from customer 
+where name in 
+(select name 
+from customer 
+where custid in 
+(select custid from customer 
+(select pname 
+from orders 
+where custid= 1001)));
+
+2c. 
+Alter table orders
+modify qty number(6);

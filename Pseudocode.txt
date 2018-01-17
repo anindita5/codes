@@ -1,0 +1,104 @@
+/*********************************************************************************
+* Module Name         : Pseudocode.txt 
+* Author              : Capgemini
+* Creation Date       : 10-JAN-2018
+* Version	      : 1.0
+* Description         : Pseudocode to calculate the net payable income tax of an individual
+*********************************************************************************/
+
+BEGIN
+
+	DECLARE Name AS STRING
+	DECLARE GENDER AS STRING
+	DECLARE AGE AS INTEGER
+	DECLARE ANNUAL_INCOME AS NUMBER
+	DECLARE TAX AS FLOAT						
+	
+	DECALRE INVALID_ANNUAL_INCOME AS EXCEPTION			\\ DECLARATION OF AN EXCEPTION
+
+	get IndividualDetails(Name, GENDER, AGE , ANNUAL_INCOME,)	 \\ CALLING PROCEDURE TO GET INDIVIDUAL DETAILS
+	calculate IndividualTaxRate(ANNUAL_INCOME, TAX)			  \\ CALLING PROCEDURE TO CALCULATE INDIVIDUAL TAX RATE
+	INVALID_ANNUAL_INCOME()						   \\ CALLING PROCEDURE FOR EXCEPTION HANDLING
+	PRINT IndividualDetails(Name, GENDER, AGE , ANNUAL_INCOME,)	    \\ CALLING PROCEDURETO DISPLAY INDIVIDUAL DETAILS
+	
+
+END
+
+/********************************************************************************
+* Module Name         : get IndividualDetails()
+* Input Parameters    : Name, GENDER, AGE , ANNUAL_INCOME, TAX
+* Return Type         : INTEGER,FLAOT,STRING
+* Creation Date       : 10-JAN-2018
+* Description         : Pseudocode to calculate the net payable income tax of an individual
+*********************************************************************************/
+
+\\ MODULE TO GET INDIVIDUAL DETAILS
+
+SUB get IndividualDetails(Name, GENDER, AGE , ANNUAL_INCOME,)
+
+	DECLARE 
+		PROMPT "ENTER Individual's Name" AND STORE IN Name
+		PROMPT "ENTER Individual's Gender" AND STORE IN GENDER
+		PROMPT "ENTER Individual's Age" AND STORE IN AGE
+		PROMPT "ENTER Individual's Name" AND STORE IN 		ANNUAL_INCOME
+		
+END SUB
+
+/********************************************************************************
+* Module Name         : calculate IndividualTaxRate()
+* Input Parameters    : ANNUAL_INCOME, TAX
+* Return Type         : NUMBER,FLOAT
+* Creation Date       : 10-JAN-2018
+* Description         : Pseudocode to calculate the net payable income tax of an individual
+*********************************************************************************/
+
+\\ MODULE TO CALCULATE INDIVIDUAL TAX RATE
+
+SUB calculate IndividualTaxRate(ANNUAL_INCOME, TAX)
+
+	IF (ANNUAL_INCOME = 2,50,000)	THEN
+		DISPLAY "NO TAX"
+	ELSE IF (ANNUAL_INCOME >= 2,50,001 && ANNUAL_INCOME <= 5,00,000) THEN
+		DISPLAY "10% TAX"
+	ELSE IF (ANNUAL_INCOME >= 5,00,001 && ANNUAL_INCOME <= 10,00,000) THEN
+		DISPLAY "20% TAX"
+	ELSE IF (ANNUAL_INCOME >= 10,00,001) THEN
+		DISPLAY "30% TAX"
+	ELSE
+		RAISE INVALID_ANNUAL_INCOME EXCEPTION
+	
+	END IF
+
+END SUB
+
+/********************************************************************************
+* Module Name         : INVALID_ANNUAL_INCOME() 
+* Return Type         : NUMBER
+* Creation Date       : 10-JAN-2018
+* Description         : Pseudocode to calculate the net payable income tax of an individual
+*********************************************************************************/
+
+ \\ MODULE FOR EXCEPTION HANDLING
+
+SUB INVALID_ANNUAL_INCOME()
+
+	WHEN INVALID_ANNUAL_INCOME
+		THEN
+			DISPLAY "PLEASE ENTER A VALID ANNUAL INCOME" //Errormessage returned from exception
+
+END SUB
+
+/********************************************************************************
+* Module Name         : PRINT IndividualDetails()
+* Input Parameters    : Name, GENDER, AGE , ANNUAL_INCOME	
+* Creation Date       : 10-JAN-2018
+* Description         : Pseudocode to calculate the net payable income tax of an individual
+*********************************************************************************/
+\\ MODULE TO DISPLAY INDIVIDUAL DETAILS
+					
+SUB PRINT IndividualDetails( Name, GENDER, AGE , ANNUAL_INCOME)
+
+		PRINT ("Indvidual Name:" +Name);
+		PRINT ("Individual Age:" +AGE);
+		PRINT ("Individual Annual_Income:" +ANNUAL_INCOME);
+END SUB

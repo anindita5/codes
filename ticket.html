@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<script>
+
+
+</script>
+<body>
+<script src="return.js"></script>
+<style>
+#td1
+{
+font-weight:bold;
+font-size:20px;
+}
+table
+{
+	padding-top: 50px;
+    padding-right: 70px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+
+
+ box-sizing: border-box;
+border:2px solid black;
+box-shadow:3px 3px 3px;
+}
+
+</style>
+<form name="frm1" onsubmit="return validate()">
+<table align="center"> 
+    <tr>
+        <p><h1><b><td align="center" colspan="2" id="td1">Movie Palace</td></b></h1><br/></p>
+    </tr>
+    <tr>
+        <td>Customer Name:</td>
+        <td><input type="text" name="cname" id="name" required pattern="[A-Z][a-z]+"  title="Minimum 5 letters" min="5" size="10" required /></td>
+    </tr>
+    <tr>
+        <td>Mobile Number:</td>
+        <td><input type="text" pattern="[7-9][0-9]{9}" name="mobileno" id="no" size="10"  pattern="[1-9]{1}[0-9]{9}" required /></td>
+    </tr>
+    <tr>
+        <td>Email Id:</td>
+        <td><input type="email" id="mailid" name="mail" size="10" required /></td>
+    </tr>
+    <tr>
+        <td>Movie Name:</td>
+        <td><input type="text" name="moviename" id="movie" size="10" required /></td>
+    </tr>
+    <tr>
+        <td>Class:</td>
+        <td><input type="radio" name="gold" id="Gold" required / >Gold
+        <input type="radio" name="gold" id="Silver" required />Silver</td>
+    </tr>
+    <tr>
+        <td>Tickets:</td>
+        <td><input type="number"  id="tick" name="ticket" min="1" max="10" required /></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" value="Book"></td>
+    </tr>
+
+</html>

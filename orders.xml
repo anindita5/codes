@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+<OrdersList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="Orders.xsd"> 
+
+    <Order OrderId="OR001">                      <!--THIS IS ATTRIBUTE-->
+           <pname>Laptop</pname>
+           <Qty>4</Qty>
+           <Price>3000</Price>
+           <CustId>1001</CustId>
+    </Order> 
+    
+     <Order OrderId="OR002">                      <!--THIS IS ATTRIBUTE-->
+           <pname>Mobile</pname>
+           <Qty>1</Qty>
+           <Price>4000</Price>
+           <CustId>1001</CustId>
+    </Order> 
+    
+     <Order OrderId="OR003">                      <!--THIS IS ATTRIBUTE-->
+           <pname>Cosmetics</pname>
+           <Qty>2</Qty>
+           <Price>8000</Price>
+           <CustId>1001</CustId>
+    </Order> 
+    
+     <Order OrderId="OR004">                      <!--THIS IS ATTRIBUTE-->
+           <pname>Cosmetics</pname>
+           <Qty>2</Qty>
+           <Price>2000</Price>
+           <CustId>1003</CustId>
+    </Order> 
+    
+     <Order OrderId="OR005">                      <!--THIS IS ATTRIBUTE-->
+           <pname>Mobile</pname>
+           <Qty>4</Qty>
+           <Price>6000</Price>
+           <CustId>1003</CustId>
+    </Order> 
+    
+     <Order OrderId="OR006">                      <!--THIS IS ATTRIBUTE-->
+           <pname>USB Cable</pname>
+           <Qty>2</Qty>
+           <Price>600</Price>
+           <CustId>1002</CustId>
+    </Order> 
+    
+     <Order OrderId="OR007">                      <!--THIS IS ATTRIBUTE-->
+           <pname>USB CABLE</pname>
+           <Qty>4</Qty>
+           <Price>600</Price>
+           <CustId>1003</CustId>
+    </Order>
+    
+</OrdersList>

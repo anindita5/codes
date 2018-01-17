@@ -1,0 +1,20 @@
+<style>
+#td1
+{
+font-weight:bold;
+font-size:20px;
+}
+table
+{
+	padding-top: 50px;
+    padding-right: 70px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+
+
+ box-sizing: border-box;
+border:2px solid black;
+box-shadow:3px 3px 3px;
+}
+
+</style>
